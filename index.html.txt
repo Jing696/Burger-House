@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+<head>
+	<meta charset="UTF-8">
+	<title>Burger House</title>
+</head>
+<body>
+	<h1>欢迎来到 Burger House</h1>
+	<p>这是我的网站设计项目</p>
+	<img src="hot coffee.jpg" alt="热咖啡"
+width="300">
+</body>
+</html>
