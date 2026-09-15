@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .star-rating input:checked ~ label {
+            color: #ffd700;
+        }
+        .star-rating input:hover ~ label {
+            color: #ffc107;
+        }
+        .reply {
+            margin-left: 20px;
+            border-left: 2px solid #ddd;
+            padding-left: 10px;
+        }
+        .like {
+            color: blue;
+            cursor: pointer;
+        }
+        .like-count {
+            color: grey;
+        }
+    </style>
+    <title>评论区</title>
+</head>
+<body>
+<div class="w3-container w3-padding-64 w3-white" id="comments">
+    <h1 class="w3-center w3-xxlarge" style="margin-bottom:64px">Comments</h1>
+    <div class="w3-row">
+        <div class="w3-col m12 w3-padding-large">
+            <h2>Rate a restaurant</h2>
+            <div class="star-rating">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5" title="5 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4" title="4 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3" title="3 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2" title="2 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1" title="1 star"><i class="fa fa-star"></i></label>
+            </div>
+            <h2>Post a comment</h2>
+            <form id="commentForm">
+                <p><input class="w3-input w3-padding-10" type="text" placeholder="Your name" required name="Name" id="commentName"></p>
+                <p><textarea class="w3-input w3-padding-10" placeholder="Write your comment" required name="Comment" id="commentText"></textarea></p>
+                <p><button type="button" class="w3-button w3-light-grey w3-section w3-padding-10" onclick="submitComment()">Submit a review</button></p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Display comments -->
+    <div class="w3-row w3-margin-top" id="commentsDisplay">
+        <!-- Comments will appear here -->
+    </div>
+</div>
+
+<script>
+// Star rating system
+const stars = document.querySelectorAll('.star-rating input');
+
+function submitComment() {
+    const name = document.getElementById('commentName').value;
+    const text = document.getElementById('commentText').value;
+    const rating = Array.from(stars).find(star => star.checked)?.value;
+    
+    if (name && text && rating) {
+        // Create new comment element
+        const comment = document.createElement('div');
+        comment.classList.add('w3-card', 'w3-margin', 'w3-padding');
+        
+        // Comment header
+        const header = document.createElement('h4');
+        header.textContent = `${name} `;
+        const ratingSpan = document.createElement('span');
+        ratingSpan.classList.add('w3-right', 'w3-tag', 'w3-dark-grey', 'w3-round');
+        ratingSpan.innerHTML = `${rating} <i class="fa fa-star"></i>`;
+        header.appendChild(ratingSpan);
+        comment.appendChild(header);
+        
+        // Comment text
+        const commentText = document.createElement('p');
+        commentText.textContent = text;
+        comment.appendChild(commentText);
+        
+        // Comment actions
+        const actions = document.createElement('p');
+        const replyButton = document.createElement('a');
+        replyButton.href = "javascript:void(0)";
+        replyButton.classList.add('w3-button', 'w3-light-grey', 'w3-section', 'w3-padding-10');
+        replyButton.textContent = 'reply';
+        replyButton.onclick = function () {
+            const replyForm = document.createElement('form');
+            replyForm.innerHTML = `
+                <p><textarea class="w3-input w3-padding-10" placeholder="Write your reply" required></textarea></p>
+                <p><button type="button" class="w3-button w3-light-grey w3-section w3-padding-10" onclick="submitReply(this)">Submit reply</button></p>
+            `;
+            const replyDiv = document.createElement('div');
+            replyDiv.classList.add('reply');
+            replyDiv.appendChild(replyForm);
+            comment.appendChild(replyDiv);
+        };
+
+        const likeButton = document.createElement('span');
+        likeButton.classList.add('like');
+        likeButton.innerHTML = 'like';
+        likeButton.onclick = function () {
+            const likeCount = this.nextElementSibling;
+            let count = parseInt(likeCount.textContent) || 0;
+            likeCount.textContent = count + 1;
+        };
+
+        const likeCount = document.createElement('span');
+        likeCount.classList.add('like-count');
+        likeCount.textContent = ' 0';
+
+        actions.appendChild(replyButton);
+        actions.appendChild(likeButton);
+        actions.appendChild(likeCount);
+        comment.appendChild(actions);
+        
+        // Add new comment to the display area
+        const commentsDisplay = document.getElementById('commentsDisplay');
+        commentsDisplay.appendChild(comment);
+        
+        // Reset form
+        document.getElementById('commentForm').reset();
+        stars.forEach(star => {
+            star.checked = false;
+        });
+    } else {
+        alert('Please fill in all fields and give a rating');
+    }
+}
+
+function submitReply(button) {
+    const replyForm = button.parentElement.parentElement;
+    const replyText = replyForm.querySelector('textarea').value;
+
+    if (replyText) {
+        const reply = document.createElement('div');
+        reply.classList.add('w3-card', 'w3-margin', 'w3-padding', 'reply');
+        reply.textContent = replyText;
+
+        replyForm.parentElement.appendChild(reply);
+        replyForm.remove();
+    } else {
+        alert('Please fill in the reply content');
+    }
+}
+</script>
+</body>
+</html>
+

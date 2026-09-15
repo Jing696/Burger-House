@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>会员中心</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="12.html" class="w3-bar-item w3-button">Burger House</a>
+  </div>
+</div>
+
+<!-- Member Center Section -->
+<div class="w3-container w3-padding-64 w3-white" style="margin-top:80px">
+  <h1 class="w3-center w3-xxlarge" style="margin-bottom:64px">会员中心</h1>
+  
+    <!-- Login Form -->
+    <div class="w3-col m6 w3-padding-large">
+      <h2>登录</h2>
+      <form id="loginForm">
+        <p><input class="w3-input w3-padding-10" type="text" placeholder="用户名或邮箱" required name="usernameOrEmail" id="loginUsernameOrEmail"></p>
+        <p><input class="w3-input w3-padding-10" type="password" placeholder="密码" required name="password" id="loginPassword"></p>
+        <p><button type="button" class="w3-button w3-light-grey w3-section w3-padding-10" onclick="loginUser()">登录</button></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Member Information -->
+  <div class="w3-row-padding w3-margin-top" id="memberInfo" style="display:none;">
+    <div class="w3-col m12 w3-padding-large">
+      <h2>会员信息</h2>
+      <p>用户名: <span id="memberUsername"></span></p>
+      <p>邮箱: <span id="memberEmail"></span></p>
+      <button class="w3-button w3-light-grey w3-section w3-padding-10" onclick="logoutUser()">登出</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Function to login user
+function loginUser() {
+  const usernameOrEmail = document.getElementById('loginUsernameOrEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  // For demo purposes, we simulate a successful login
+  // In a real application, you'd validate the credentials with a backend server
+  alert('登录成功！');
+
+  // Show member information
+  document.getElementById('memberUsername').textContent = usernameOrEmail;
+  document.getElementById('memberEmail').textContent = usernameOrEmail.includes('@') ? usernameOrEmail : 'example@example.com';
+  document.getElementById('memberInfo').style.display = 'block';
+
+  // Reset login form
+  document.getElementById('loginForm').reset();
+}
+
+// Function to logout user
+function logoutUser() {
+  // Hide member information
+  document.getElementById('memberInfo').style.display = 'none';
+  alert('已登出');
+}
+</script>
+
+</body>
+</html>
