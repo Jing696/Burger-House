@@ -1,13 +1,359 @@
 <!DOCTYPE html>
-<html lang="zh-CN"
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Burger House</title>
+<title>Burger House</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
 </head>
 <body>
-	<h1>欢迎来到 Burger House</h1>
-	<p>这是我的网站设计项目</p>
-	<img src="hot coffee.jpg" alt="热咖啡"
-width="300">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Burger House</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#menu" class="w3-bar-item w3-button">Menu</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      <a href="#meal-packages" class="w3-bar-item w3-button">Combo Meal</a>
+      <a href="#ambience" class="w3-bar-item w3-button">Ambience</a>
+      <a href="123.html" class="w3-bar-item w3-button">Comments</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="burger.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge w3-text w3-white">Burger House</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="burger2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Burger House</h1><br>
+      
+      <p class="w3-large">Creating happiness in every bite
+        Burger House is a burger chain that has been around for more than 30 years with over 600 stores nationwide. It was established in the belief of providing affordable and quality food for its customers.</p>
+        
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Menu Section -->
+ <!-- Menu Container -->
+ <div class="w3-container w3-white w3-padding-54 w3-xlarge" id="menu">
+    <div class="w3-content">
+    
+      <h1 class="w3-center w3-xxlarge" style="margin-bottom:64px">THE MENU</h1>
+      <div class="w3-row w3-center w3-border w3-border-dark-grey">
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-black">Burger</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-black">Hotdog</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-black">Beverages</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Others');"> 
+          <div class="w3-col s3 tablink w3-padding-large w3-hover-black">Others</div>
+        </a>
+      </div>
+  
+  
+      <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+      <ul>
+        <li class="menu-item" data-photo="bacon-cheese-burger.jpg">Bacon Cheese Burger
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 84</span>
+        </li>
+        <li class="menu-item" data-photo="black-pepper-burger.jpg">Black Pepper Burger
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 77</span>
+        </li>
+        <li class="menu-item" data-photo="beef-pizza-burger.jpg">Beef Pizza Burger
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 80</span>
+        </li>
+        <li class="menu-item" data-photo="veggie-chicken-burger.jpg">Veggie Chicken Burger
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 60</span>
+        </li>
+        <li class="menu-item" data-photo="baconnaise-crispy-chicken.jpg">Baconnaise Crispy Chicken
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 73</span>
+        </li>
+        <li class="menu-item" data-photo="beef-shawarma-burger.jpg">Beef Shawarma Burger
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 80</span>
+        </li>
+      </ul>
+    </div>
+
+      <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+       <ul>
+        <li class="menu-item" data-photo="bacon-cheese-franks.jpg">Bacon Cheese Franks
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 77</span>
+        </li>
+        <li class="menu-item" data-photo="chili con franks.jpg">Chili Con Cheese Franks
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 79</span>
+        </li>
+        <li class="menu-item" data-photo="chessy dog.jpg">Chessy Dog
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 42</span>
+        </li>
+       </ul>
+      </div>
+  
+      <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+       <ul>
+        <li class="menu-item" data-photo="krazy wintermelon milk tea.jpg">Krazy Wintermelon Milk tea
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+        <li class="menu-item" data-photo="calamantea.jpg">Calamantea
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+        <li class="menu-item" data-photo="frutwsist.jpg">Frutwsist
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+        <li class="menu-item" data-photo="iced choco.jpg">Iced Choco
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+        <li class="menu-item" data-photo="hot choco.jpg">Hot Choco
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+        <li class="menu-item" data-photo="hot coffee.jpg">Hot Coffee
+          <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 10</span>
+        </li>
+       </ul>
+    </div>
+  </div>
+  
+
+  <div id="Others" class="w3-container menu w3-padding-32 w3-white">
+     <ul>
+       <li class="menu-item" data-photo="australian-steak.jpg">Australian Steak
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 170</span>
+       </li> 
+       <li class="menu-item" data-photo="black-pepper-steak.jpg">Black Pepper Steak
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 140</span>
+       </li> 
+       <li class="menu-item" data-photo="grilled-steak.jpg">Grilled Steak
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 140</span>
+       </li> 
+       <li class="menu-item" data-photo="fish-fillet.jpg">Baked Salmon
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 130</span>
+       </li> 
+       <li class="menu-item" data-photo="fried-chicken.jpg">Fried Chicken
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 60</span>
+      </li>
+      <li class="menu-item" data-photo="grilled-chicken-sandwich.jpg">Grilled Chicken Sandwich
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 40</span>
+      </li>
+      <li class="menu-item" data-photo="rice-pilaf.jpg">Rice Pilaf
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 40</span>
+      </li>
+      <li class="menu-item" data-photo="french-fries.jpg">French Fries
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 20</span>
+      </li>
+      <li class="menu-item" data-photo="mashed-potatoes.jpg">Mashed Potatoes
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 30</span>
+      </li>
+      <li class="menu-item" data-photo="vegetable-salad.jpg">Vegetable Salad
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 20</span>
+      </li>
+      <li class="menu-item" data-photo="coleslaw.jpg">Coleslaw
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 20</span>
+      </li>
+      <li class="menu-item" data-photo="caesar-salad.jpg">Caesar Salad
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 20</span>
+      </li>
+      <li class="menu-item" data-photo="fresh-fruit.jpg">Fresh Fruit
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 40</span>
+      </li>
+      <li class="menu-item" data-photo="garden-saladt.jpg">Garden Salad
+        <span class="w3-right w3-tag w3-dark-grey w3-round">HK$ 20</span>
+      </li>
+     </ul>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal" id="modal">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <img id="modal-image" src="" alt="Food Photo">
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-44 w3-black" id="contact">
+    <h1>Contact</h1><br>
+    <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to contact us.</p>
+    <p class="w3-text-blue-grey w3-large"><b>Catering Service, 42nd Living St, 43043 New York, NY</b></p>
+    <p>You can also contact us by phone 00553123-2323 or email catering@catering.com, or you can send us a message here:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-10" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-10" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-10" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-10" type="text" placeholder="Message / Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-section  w3-padding-10" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+  
+
+  <hr>
+
+  <!-- Meal Package Section -->
+  <div class="w3-container w3-padding-64 w3-white" id="meal-packages">
+    <h1 class="w3-center w3-xxlarge" style="margin-bottom:64px">Combo Meal</h1>
+    
+    <!-- Lunch Packages -->
+    <h2 class="w3-center w3-xlarge" style="margin-bottom:32px">Lunch</h2>
+    <div class="w3-row-padding">
+      <div class="w3-col m6 w3-padding-large">
+        <p class="w3-large">Lunch Package 1</p>
+        <ul class="w3-large">
+          <li>Item 1: Grilled Chicken Sandwich</li>
+          <li>Item 2: Caesar Salad</li>
+          <li>Item 3: Fresh Fruit</li>
+          <li>Item 4: Beverage (Choice of soda or iced tea)</li>
+        </ul>
+        <p class="w3-large w3-right w3-tag w3-dark-grey w3-round">HK$ 100</p>
+      </div>
+      <div class="w3-col m6 w3-padding-large">
+        <p class="w3-large">Lunch Package 2</p>
+        <ul class="w3-large">
+          <li>Item 1: Beef Burger</li>
+          <li>Item 2: French Fries</li>
+          <li>Item 3: Coleslaw</li>
+          <li>Item 4: Beverage (Choice of soda or iced tea)</li>
+        </ul>
+        <p class="w3-large w3-right w3-tag w3-dark-grey w3-round">HK$ 120</p>
+      </div>
+    </div>
+  
+    <!-- Dinner Packages -->
+    <h2 class="w3-center w3-xlarge" style="margin-bottom:32px">Dinner</h2>
+    <div class="w3-row-padding">
+      <div class="w3-col m6 w3-padding-large">
+        <p class="w3-large">Dinner Package 1</p>
+        <ul class="w3-large">
+          <li>Item 1: Grilled Steak</li>
+          <li>Item 2: Mashed Potatoes</li>
+          <li>Item 3: Vegetable Salad</li>
+          <li>Item 4: Beverage (Choice of soda or wine)</li>
+        </ul>
+        <p class="w3-large w3-right w3-tag w3-dark-grey w3-round">HK$ 180</p>
+      </div>
+      <div class="w3-col m6 w3-padding-large">
+        <p class="w3-large">Dinner Package 2</p>
+        <ul class="w3-large">
+          <li>Item 1: Baked Salmon</li>
+          <li>Item 2: Rice Pilaf</li>
+          <li>Item 3: Garden Salad</li>
+          <li>Item 4: Beverage (Choice of soda or wine)</li>
+        </ul>
+        <p class="w3-large w3-right w3-tag w3-dark-grey w3-round">HK$ 180</p>
+      </div>
+    </div>
+  </div>
+  
+<hr>
+
+<!-- Restaurant Ambience Section -->
+<div class="w3-container w3-padding-64 w3-white" id="ambience">
+  <h1 class="w3-center w3-xxlarge" style="margin-bottom:64px">Restaurant Ambience</h1>
+  <div class="w3-row-padding">
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo1.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 1" width="400" height="300">
+    </div>
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo2.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 2" width="400" height="300">
+    </div>
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo3.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 3" width="400" height="300">
+    </div>
+  </div>
+  <div class="w3-row-padding">
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo4.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 4" width="400" height="300">
+    </div>
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo5.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 5" width="400" height="300">
+    </div>
+    <div class="w3-col m4 w3-padding-large">
+      <img src="ambience-photo6.jpg" class="w3-round w3-image w3-opacity-min" alt="Ambience Photo 6" width="400" height="300">
+    </div>
+  </div>
+</div>
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-black w3-padding-32">
+  <p>Created by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">Name</a></p>
+</footer>
+<script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+         tablinks[i].className = tablinks[i].className.replace(" w3-black", "");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-black";
+    }
+    document.getElementById("myLink").click();
+    </script>
+    
+    <script>
+      // Get all interactive menu items
+      const menuItems = document.querySelectorAll('.menu-item');
+      const modal = document.getElementById('modal');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalImage = document.getElementById('modal-image');
+      const closeBtn = document.getElementById('close-btn');
+  
+      // Add click event listener to each menu item
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const photo = item.getAttribute('data-photo');
+          modalImage.src = photo; // Set the image source
+          modal.style.display = 'block';
+          modalOverlay.style.display = 'block';
+        });
+      });
+  
+      // Close modal when clicking the close button
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalOverlay.style.display = 'none';
+      });
+  
+      // Close modal when clicking outside the modal
+      modalOverlay.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalOverlay.style.display = 'none';
+      });
+    </script>
 </body>
 </html>
